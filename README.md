@@ -2,38 +2,6 @@
 
 A modular Node.js REST API using Express and Sequelize ORM, supporting user management and post creation with robust authentication, validation, and error handling.
 
----
-
-**Project Structure**
-src/
-│
-├── config/
-│ └── database.js # Sequelize database connection setup
-│
-├── controllers/
-│ ├── post.controller.js # Business logic for post CRUD
-│ └── user.controller.js # Business logic for user CRUD, auth, etc.
-│
-├── middleware/
-│ └── auth.js # JWT authentication and authorization middleware
-│
-├── models/
-│ ├── post.model.js # Sequelize Post model definition
-│ └── user.model.js # Sequelize User model definition
-│
-├── routes/
-│ ├── post.routes.js # Express routes for posts
-│ └── user.routes.js # Express routes for users
-│
-├── utils/
-│ ├── ApiError.js # Custom error class for consistent error responses
-│ ├── ApiResponse.js # Custom response class for success responses
-│ └── asyncHandler.js # Utility to wrap async route handlers
-│
-└── index.js # Entry point: sets up Express app, middleware, routes, and server
-
----
-
 ## **Key Components**
 
 - **config/database.js**  
