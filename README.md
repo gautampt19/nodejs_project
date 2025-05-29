@@ -4,7 +4,7 @@ A modular Node.js REST API using Express and Sequelize ORM, supporting user mana
 
 ---
 
-## **Project Structure**
+**Project Structure**
 src/
 │
 ├── config/
