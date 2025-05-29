@@ -8,29 +8,29 @@ A modular Node.js REST API using Express and Sequelize ORM, supporting user mana
 src/
 │
 ├── config/
-│   └── database.js
+│ └── database.js # Sequelize database connection setup
 │
 ├── controllers/
-│   ├── post.controller.js
-│   └── user.controller.js
+│ ├── post.controller.js # Business logic for post CRUD
+│ └── user.controller.js # Business logic for user CRUD, auth, etc.
 │
 ├── middleware/
-│   └── auth.js
+│ └── auth.js # JWT authentication and authorization middleware
 │
 ├── models/
-│   ├── post.model.js
-│   └── user.model.js
+│ ├── post.model.js # Sequelize Post model definition
+│ └── user.model.js # Sequelize User model definition
 │
 ├── routes/
-│   ├── post.routes.js
-│   └── user.routes.js
+│ ├── post.routes.js # Express routes for posts
+│ └── user.routes.js # Express routes for users
 │
 ├── utils/
-│   ├── ApiError.js
-│   ├── ApiResponse.js
-│   └── asyncHandler.js
+│ ├── ApiError.js # Custom error class for consistent error responses
+│ ├── ApiResponse.js # Custom response class for success responses
+│ └── asyncHandler.js # Utility to wrap async route handlers
 │
-└── index.js
+└── index.js # Entry point: sets up Express app, middleware, routes, and server
 
 ---
 
