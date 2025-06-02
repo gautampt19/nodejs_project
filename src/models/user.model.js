@@ -2,6 +2,7 @@ import { DataTypes } from 'sequelize';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { sequelize } from '../db/index.js';
+import Post from './post.model.js';
 
 const User = sequelize.define('User', {
     username: {
@@ -108,5 +109,9 @@ User.prototype.generateRefreshToken = function() {
     );
 };
 
+
+// One-to-Many: User has many Posts
+User.hasMany(Post, { foreignKey: 'authorId' });
+Post.belongsTo(User, { foreignKey: 'authorId', onDelete: 'CASCADE' });
 
 export default User;

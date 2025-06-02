@@ -11,7 +11,7 @@ export const createPost = asyncHandler(async (req, res) => {
     if (!title || !content) {
         throw new ApiError(400, "Title and content are required");
     }
-
+    console.log("printing user id " + req.user.id )
     // Create the post
     let post;
     try {
@@ -23,7 +23,8 @@ export const createPost = asyncHandler(async (req, res) => {
     } catch (err) {
         throw new ApiError(500, "Failed to create post");
     }
-
+    console.log("printing post")
+    console.log(post.authorId)
     return res
     .status(201)
     .json(new ApiResponse(201, post, "Post created successfully"));
@@ -32,12 +33,16 @@ export const createPost = asyncHandler(async (req, res) => {
 
 // Get All Posts
 export const getPosts = asyncHandler(async (req, res) => {
+
+    console.log("indside get post")
     const posts = await Post.findAll({
+        where: { authorId: req.user.id },
         include: [{
             model: User,
             attributes: ['id', 'username']
         }]
     });
+    console.log("postss:" + posts)
     res
     .status(200)
     .json(new ApiResponse(200, posts));

@@ -14,6 +14,15 @@ const Post = sequelize.define('Post', {
     content: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+        authorId: { // Explicitly define the foreign key
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'users', // Table name (Sequelize defaults to plural)
+            key: 'id'
+        },
+        onDelete: 'CASCADE'
     }
 });
 

@@ -10,7 +10,7 @@ import { requireAuth } from '../middlewares/auth.middleware.js';
 const postRouter = Router()
 
 postRouter.route("/createPost").post(requireAuth, createPost);
-postRouter.route("/getPosts").get(getPosts);
+postRouter.route("/getPosts").get(requireAuth,getPosts);
 postRouter.route("/updatePost/:id").put(requireAuth, updatePost);
 postRouter.route("/deletePost/:id").delete(requireAuth, deletePost);
 

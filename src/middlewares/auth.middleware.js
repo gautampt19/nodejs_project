@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
 
 export const requireAuth = asyncHandler(async (req, res, next) => {
+    console.log("inside authorization")
     const token = req.cookies.accessToken || req.headers['authorization']?.split(' ')[1];
     if (!token) {
         res.status(401);
@@ -15,6 +16,7 @@ export const requireAuth = asyncHandler(async (req, res, next) => {
         res.status(401);
         throw new Error('User not found');
     }
+    console.log(user)
     req.user = user;
     next();
 });
